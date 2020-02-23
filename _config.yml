@@ -22,7 +22,7 @@ title: Write it differently
 description: >- # this means to ignore newlines until "baseurl:"
   This is my personal blog about all things related to coding.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://writeitdifferently.com" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://writeitdifferently.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: t_bartoszewski
 github_username:  tomaszbartoszewski
 
