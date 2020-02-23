@@ -4,7 +4,7 @@ title: Talks
 permalink: /talks/
 ---
 
-I like public speaking, I present at meetups and conferences. I learnt a lot from other people, so it's my way of giving back to community. I prefer to avoid flying due to environmental impact, but if you would like me to present on your event and I can travel with trains from London, I'm happy to do it. Here is a list of my external presentations.
+I like public speaking, I present at meetups and conferences. I learnt a lot from other people, so it's my way of giving back to community. I prefer to avoid flying due to environmental impact, but if you would like me to present at your event and I can travel with trains from London, I'm happy to do it. Here is a list of my external presentations.
 
 ## Presentations I do currently
 
