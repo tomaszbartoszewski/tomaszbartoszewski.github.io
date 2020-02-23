@@ -197,11 +197,11 @@ psql \
 -d db_destination
 {% endhighlight %}
 
-Check if you have data is in destination database.
+Check if you have data in destination database.
 
 ## When it doesn't work with creating an index after
 
-I had to run it for a table which had size around 36GB and 220M rows. Generated dump first creates a table, then inserts all the data and after that creates constraints and indices. You can see it by creating new table.
+I had to run it for a table which had size around 36GB and 220M rows. Generated dump first creates a table, then inserts all the data and after that creates constraints and indices. You can see it by creating a new table.
 
 {% highlight shell %}
 psql \
@@ -255,7 +255,7 @@ ALTER TABLE ONLY public.example2
     ADD CONSTRAINT example2_value_key UNIQUE (value);
 ```
 
-It’s more efficient to create a table, insert data without any checks, and once we have all rows we can create indices. It should be faster operation than validating every row when inserting data. Because of the size of table and limits on my PostgreSQL instance, I was getting an exception when creating an index. My work around was to migrate the schema first and then data. To do that, you have to use `--schema-only` and `--data-only`, see example below.
+It’s more efficient to create a table, insert data without any checks, and once we have all rows we can create indices. It should be a faster operation than validating every row when inserting data. Because of the size of a table and limits on my PostgreSQL instance, I was getting an exception when creating an index. My work around was to migrate the schema first and then data. To do that, you have to use `--schema-only` and `--data-only`, see an example below.
 
 {% highlight shell %}
 pg_dump \
@@ -287,6 +287,6 @@ psql \
 -d db_destination
 {% endhighlight %}
 
-You can check output from both dumps when you remove psql part from the query, like we did at the beginning when we displayed output on a console.
+You can check output from both dumps when you remove a psql part from the query, like we did at the beginning when we displayed output on a console.
 
 I hope you found it useful, good luck on your data migration!
