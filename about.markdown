@@ -8,7 +8,7 @@ Hello!
 
 Welcome, weary traveller to my site. You are probably lost, if you are searching for wisdom, I'm not the right monk. I'm neither an expert nor a master, nor a thought leader, nor an influencer.
 
-I should really quote Victor Hugo here `"I'm not totally useless. I can be used as a bad example."`
+I should really quote this here `"I'm not totally useless. I can be used as a bad example."`
 
 I like to be involved in everything at work. I wanted to be a knight, but because of low demand, I ended up slaying bugs on production. I like improving performance of the applications, so you may see something about it from time to time here. In my free time, I usually play with Rubik's cubes, currently the Megaminx. Big Lego fan, especially Castle series, and anything what requires creativity.
 
