@@ -26,6 +26,13 @@ url: "https://writeitdifferently.com" # the base hostname & protocol for your si
 twitter_username: t_bartoszewski
 github_username:  tomaszbartoszewski
 
+header_pages:
+  - talks.markdown
+  - about.markdown
+
+disqus:
+  shortname: writeitdifferently
+
 # Build settings
 theme: minima
 plugins:
