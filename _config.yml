@@ -35,8 +35,6 @@ disqus:
 
 show_excerpts: true
 
-google_analytics: UA-159062381-1
-
 # Build settings
 theme: minima
 plugins:
