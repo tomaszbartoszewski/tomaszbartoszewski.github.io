@@ -20,7 +20,7 @@ If you have your secrets in kubernetes and can connect with kubectl, you can see
 
 For this demo I'm going to use Minikube. I used it on Ubuntu and MacOS, on many occasions it was a great way to test something, without affecting anybody else. If you want to install it, you can find instructions [here](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
-After installation you should get it set as your current context. To check you are connected to the correct cluser run:
+After installation you should get it set as your current context. To check you are connected to the correct cluster run:
 {% highlight shell %}
 kubectl config get-contexts
 {% endhighlight %}
@@ -35,7 +35,7 @@ If you are using MacOS and have Docker Desktop installed, when you press the ico
 kubectl config set-context minikube
 {% endhighlight %}
 
-I highly recommend setting autocompletion for kubectl if you are using it often, you can find instructions [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion)
+I highly recommend setting autocompletion for kubectl, if you are using it often, you can find instructions [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/#enabling-shell-autocompletion)
 
 For iterating over json fields I'm using `jq`, you can read more about it [here](https://stedolan.github.io/jq/)
 
@@ -54,7 +54,7 @@ kube-public       Active   46m
 kube-system       Active   46m
 ```
 
-Now we can create a new namespace
+Now we can create a new namespace.
 {% highlight shell %}
 kubectl create namespace download-demo
 {% endhighlight %}
@@ -116,7 +116,7 @@ You should get:
 { "message": "very secret" }
 ```
 
-This is exactly what we had in our file `config.json`. If you want to access one specific value you can use jsonpath and specify a path to your property as a template. .data reference to our data level as a map and if we want to see specific property inside, we have to specify our key, because `.` is a separator, we have to escape it with `\` so our file `config.json` is represented as `config\.json`. Try it for yourself.
+This is exactly what we had in our file `config.json`. If you want to access one specific value you can use jsonpath and specify a path to your property as a template. .data reference to our data level and gives you a map. If we want to see specific property inside, we have to specify our key, because `.` is a separator, if it's part of a key we have to escape it with `\` so our file `config.json` is represented as `config\.json`. Try it for yourself.
 
 {% highlight shell %}
 kubectl --namespace download-demo \
@@ -125,7 +125,7 @@ get secrets my-application-secrets \
 --template '{.data.config\.json}'
 {% endhighlight %}
 
-That will give you value we just saw encoded in base64, you can pipe it to see content
+That will give you value we just saw encoded in base64, you can pipe it to see the content.
 
 {% highlight shell %}
 kubectl --namespace download-demo \
@@ -175,7 +175,9 @@ done
 
 To run this script you have to specify your namespace (I have it hardcoded in my script, as I always use same namespace), then your secret name and optional directory where you want to save files, if it’s not specified the script will use directory with same name as secrets.
 
+{% highlight shell %}
 ./get_secrets.sh download-demo my-application-secrets
+{% endhighlight %}
 
 You can now see that files have same content like our original files
 
