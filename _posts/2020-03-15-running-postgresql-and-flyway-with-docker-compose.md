@@ -6,7 +6,7 @@ categories: [postgresql, flyway]
 tags: [migration, flyway, docker, docker-compose]
 ---
 
-Run PostgreSQL locally and apply schema changes using Flyway. Let's see, how to do it without messing up with your local environment, thanks to Docker Compose.
+Run PostgreSQL locally and apply schema changes using Flyway. Let's see how to do it without messing up with your local environment, thanks to Docker Compose.
 
 ## Use case
 
@@ -232,4 +232,4 @@ docker-compose -f docker-compose-postgres.yml down -v
 {% endhighlight %}
 
 ## Summary
-In this blog post we went through creating a schema with SQL scripts, which were then executed by Flyway. We configured PostgreSQL and Flyway to run in Docker Compose. Then we run few queries to make sure our database works as expected. Final part was about stopping PostgreSQL and deleting instance completely. I hope you found it useful.
+In this blog post we went through creating a schema with SQL scripts, which were then executed by Flyway. We configured PostgreSQL and Flyway to run in Docker Compose. Then we run a few queries to make sure our database works as expected. Final part was about stopping PostgreSQL and deleting instance completely. I hope you found it useful.
