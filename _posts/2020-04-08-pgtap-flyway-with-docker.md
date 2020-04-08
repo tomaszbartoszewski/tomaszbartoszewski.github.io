@@ -10,7 +10,7 @@ In this post I will show you how I'm testing functions in PostgreSQL using pgTAP
 
 ## What I will cover here
 
-In this post I will show you how to run pgTAP using Docker. In my case I wanted to run it after schema is applied with Flyway. While I will show you how to run a test, I won't go here into details how pgTAP works. You can use my example to get something running locally, but if you are just getting started, it may be easier to run it without Docker first. On the other hand my example may be a good playground.
+In this post I will show you how to run pgTAP using Docker. In my case I wanted to run it after Flyway applies a schema. While I will show you how to run a test, I won't go here into details how pgTAP works. You can use my example to get something running locally, but if you are just getting started, you may prefer to run it without Docker first. On the other hand my example is a good playground.
 
 ## Credits
 
@@ -29,7 +29,7 @@ And as usual [documentation](https://pgtap.org/) was helpful.
 * Docker
 * Docker Compose
 * [Code from GitHub](https://github.com/tomaszbartoszewski/postgresql-docker)
-* Psql (not essential but can be useful)
+* Psql (not essential but is useful)
 * [Understanding of existing Flyway migration]({% post_url 2020-03-15-running-postgresql-and-flyway-with-docker-compose %}) (optional)
 
 ## What is inside Docker image
@@ -39,7 +39,7 @@ To run PostgreSQL and Flyway from my repository, you have to run
 docker-compose -f docker-compose-postgres.yml up
 {% endhighlight %}
 
-That will start PostgreSQL, then Flyway will apply schema from `sql_versions` directory. To run tests we have to wait first for PostgreSQL to be ready. It will accept connection when you can call it's endpoint and get empty reply from the server.
+That will start PostgreSQL, then Flyway will apply schema from `sql_versions` directory. To run tests we have to wait until PostgreSQL is ready. It will accept connection when you can call it's endpoint and get empty reply from the server.
 {% highlight shell %}
 curl http://127.0.0.1:5432
 {% endhighlight %}
@@ -47,16 +47,16 @@ It should give you a response:
 ```
 curl: (52) Empty reply from server
 ```
-This doesn't mean that Flyway finished running, especially when you have many migration scripts, it can take a while. For humans it will be quick, but when you have a script which tries to run tests, migration may be still too slow.
+This doesn't mean that Flyway finished running, when you have many migration scripts, it can take a while. For humans it will be quick, but when you have a script which tries to run tests, migration is too slow.
 
-Our next step is to wait for Flyway. I achieved that by querying PostgreSQL and making sure that all files from `sql_versions` directory were applied, this is part of other script, but it can help with understanding.
+Our next step is to wait for Flyway. I achieved that by querying PostgreSQL and making sure that Flyway applied all files from `sql_versions` directory. This is part of other script, but it can help with understanding.
 {% highlight shell %}
 COUNT_FILES_TO_EXECUTE=$(ls -1 sql_versions | wc -l)
 {% endhighlight %}
-Because some scripts can be reapplied, starting by default with `R__`, I had to use `count(DISTINCT script)` to get correct number, if we run on empty database `count(*)` would work too.
+Because some scripts can be applied multiple times, starting by default with `R__`, I had to use `count(DISTINCT script)` to get correct number, if we run on empty database `count(*)` would work too.
 
 Try to run command below, I had to remove spaces from response to get just a number.
-(While for our tests we can pass password with environment variable, be careful to not do the same with your production database, as it will stay in your commands' history)
+While for our tests we can pass password with environment variable, be careful to not do the same with your production database, as it will stay in your command history.
 {% highlight shell %}
 PGPASSWORD=pass psql -h 127.0.0.1 -p 5432 -U example-username \
 -d db-name -t -c \
@@ -95,21 +95,21 @@ The last step is to execute tests which happens with
 PGPASSWORD=$PASSWORD pg_prove -h $HOST -p $PORT -d $DATABASE -U $USER $TESTS
 {% endhighlight %}
 
-Most of code above you can find in this [script](https://github.com/tomaszbartoszewski/postgresql-docker/blob/master/tests_docker/test.sh), it is part of generated docker image. This way my co-workers can pull an image from Container Registry and use it quickly.
+Most of code above you can find in this [script](https://github.com/tomaszbartoszewski/postgresql-docker/blob/master/tests_docker/test.sh), it is part of generated Docker image. This way my co-workers can pull an image from Container Registry and use it quickly.
 
-You can build Docker with make command.
+You can build Docker image with make command.
 {% highlight shell %}
 make build_test_image
 {% endhighlight %}
 
 ## Running tests
 
-When Docker image is created we can run tests. We have to start PostgreSQL with Flyway in a background
+After creating Docker image we can run tests. We have to start PostgreSQL with Flyway in a background
 {% highlight shell %}
 docker-compose -f docker-compose-postgres.yml up > /dev/null &
 {% endhighlight %}
 
-Next step is to start Docker container with pgTAP from previous section. We have to mount directory with our tests and provide all parameters required by `test.sh`, which is an entrypoint in our container.
+The next step is to start Docker container with pgTAP from previous section. We have to mount directory with our tests and pass all parameters required by `test.sh`, which is an entry point in our container.
 {% highlight bash %}
 COUNT_FILES_TO_EXECUTE=$(ls -1 sql_versions | wc -l)
 docker run --rm --network="host" \
@@ -152,7 +152,7 @@ SELECT save_car_and_person(:first_name::varchar(50),
                            :car_model::varchar(50));
 {% endhighlight %}
 
-Next step is to query tables.
+The next step is to query tables.
 {% highlight sql %}
 PREPARE observed_values AS
     SELECT
@@ -175,7 +175,7 @@ That should give you enough information if your test code is working. If you wou
 {% highlight shell %}
 docker-compose -f docker-compose-postgres.yml down -v
 {% endhighlight %}
-Without it, after you run your tests, database will stay open with pgTAP installed. You can copy and paste entire test (without `BEGIN` and `ROLLBACK;`) into psql and you should be able to query data left in a database after a test. It can be helpful for debugging tests, as you can run one command at a time and check if data is as expected.
+Without it, after you run your tests, database will stay open with pgTAP installed. You can copy and paste entire test into psql, if you remove `ROLLBACK`, you can query data left in a database after a test. It is helpful for debugging tests, as you can run one command at a time and check if data is as expected.
 
 ## Happy testing
-While writing tests for PostgreSQL with pgTAP is not an easy process, it can be extremely useful. Being able to run it in Docker not only allow you to run it locally, but gives your co-workers easy start, without lots of installation steps. Not to mention if your build server supports running Docker images, making it part of CI will give you extra confidence in your database changes, before they hit any environment. Go and add some tests!
+While writing tests for PostgreSQL with pgTAP is not an easy process, it is extremely useful. Being able to run it in Docker not only allow you to run it locally, but gives your co-workers easy start, without lots of installation steps. If your build server supports running Docker images, making it part of CI will give you an extra confidence in your database changes, before they hit any environment. Go and add some tests!
