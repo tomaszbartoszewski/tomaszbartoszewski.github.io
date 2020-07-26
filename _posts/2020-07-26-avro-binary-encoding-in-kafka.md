@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Avro Binary encoding based on messages in Kafka"
-date:   2020-07-12 10:00:00 +0000
+date:   2020-07-26 15:00:00 +0000
 categories: [avro, binary, encoding]
 tags: [avro, binary, encoding, kafka]
 ---
