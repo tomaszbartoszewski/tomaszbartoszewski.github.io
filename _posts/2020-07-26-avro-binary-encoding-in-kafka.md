@@ -785,7 +785,7 @@ You can see a message in base64. You may have different value, if your schema id
 To get hex value run.
 
 ```
-echo "AAAAAANIYWEzYWZkNDQtODExOS00NTY1LTgwOWItOWRmNzVkNmRkYWIwAgICQgQCCDA3MDACCDE1MDAYAggxMjAwAggyMDAwEAACAggwMTAwAggwMjAwAggwMzAwAggwNDAwAggwNTAwAggwNjAwAggwNzAw"\
+echo "AAAAAANIYWEzYWZkNDQtODExOS00NTY1LTgwOWItOWRmNzVkNmRkYWIwAgICQgQCCDA3MDACCDE1MDAYAggxMjAwAggyMDAwEAACAggwMTAwAggwMjAwAggwMzAwAggwNDAwAggwNTAwAggwNjAwAggwNzAw" \
 | base64 --decode | od -t x1 -Ad
 ```
 
@@ -829,6 +829,13 @@ Last field is a union of null and a record of 7 fields which are unions of a nul
 `02  08  30  37  30  30` - `0700`
 
 That's the end of the message, you can compare it with avro consumer to check that it's matching.
+
+We looked at representation of int and long, for them it's easier to look at bits instead of hex values. You can use `xxd` for it. Try last command with it, instead of `od`.
+
+```
+echo "AAAAAANIYWEzYWZkNDQtODExOS00NTY1LTgwOWItOWRmNzVkNmRkYWIwAgICQgQCCDA3MDACCDE1MDAYAggxMjAwAggyMDAwEAACAggwMTAwAggwMjAwAggwMzAwAggwNDAwAggwNTAwAggwNjAwAggwNzAw" \
+| base64 --decode | xxd -b
+```
 
 ## Summary
 
