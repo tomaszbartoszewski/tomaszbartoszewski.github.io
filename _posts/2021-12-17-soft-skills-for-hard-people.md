@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Improving my Soft Skills - Part 2"
-date:   2021-12-17 15:00:00 +0000
+date:   2021-12-18 19:00:00 +0000
 categories: [soft, skills, communication]
 tags: [soft, skills, communication]
 ---
@@ -21,24 +21,24 @@ First is hijacking when the conversation is about one person in a group and we m
 
 Projecting, trying to understand other's situation through our own lens and experiences. Saying things like "If I were you..." means projection. Even if you are standing in the same place, you walked different paths in life to it. You can ask them questions about their situation instead.
 
-Unsolicited advice, this one I never liked when it happened to me, so I was avoiding doing it to others. I'm glad to know it's annoying for everyone. If there is no time to change, keep it to yourself. Questions to consider: "Did they ask for my advice?", "How does what I want to say add value to this person/situation?", "Am I trying to impress them?", "How do I phrase my advice so it does not shame, demoralize, or impose?".
+Unsolicited advice, this one I never liked when it happened to me, so I was avoiding doing it to others. I'm glad to know it's annoying for everyone. If there is no time to change, keep the advice to yourself. Questions to consider: "Did they ask for my advice?", "How does what I want to say add value to this person/situation?", "Am I trying to impress them?", "How do I phrase my advice so it does not shame, demoralize, or impose?".
 
 As a leader you want to empower them and not show how great you are.
 
 In some situations you have to step in, when there is urgency, employee is not yet fully trained or when team is just forming and/or new team members need you to provide structure and guidance.
 <br><br><br>
-Conflict is not all bad. People have different opinions, there is no growth without friction. Embracing conflict shows other that you are not afraid to face it.
+Conflict is not all bad. People have different opinions, there is no growth without friction. Embracing conflict shows others that you are not afraid to face it.
 <br><br><br>
 Complaining is fine, if it comes with proactive suggestions, solutions, and invitation for discussion. It's better to let people complain, so they don't hold it inside until it becomes toxic.
 <br><br><br>
 Anger is a result of other negative emotions, the author called it a tip of the Iceberg. "When someone is angry, it's a sure sign that one or more of their important needs is not being met.". You can use anger constructively, it can take a form of passion, fervor and excitement. Address it early before it explodes and causes a lot of damage.
 <br><br><br>
-Four stages of team development are forming, storming, norming and performing. Every time there is a team change, someone joins or someone leaves you go through this cycle again. The storming is when there is a conflict and it's important to embrace it, so the team learns how to work together rather than hide problems, as it will come back again.
+Four stages of team development are forming, storming, norming and performing. Every time there is a team change, someone joins or someone leaves you go through this cycle again. The storming is when there is a conflict and it's important to embrace it, so the team learns how to work together and not hide problems, as it will come back again.
 <br><br><br>
-Something what I'm not sure about is the clean boundaries. The author advise to not use work for satisfying social needs. I've made a lot of friendships at work and the advice, if I understood correctly is to not be friends, as then emotion will affect the work. We spend a lot of time at work, so making friends was something natural to me. And it's easier with people I already spend a lot of time in a team.
+Something what I'm not sure about is the clean boundaries. The author recommends to not use work for satisfying social needs. I've made a lot of friendships at work and the advice, if I understood correctly is to not be friends, as then emotion will affect the work. We spend a lot of time at work, so making friends was something natural to me. And it's easier with people I already spend a lot of time in a team. But I can see how as a leader you want to help people and be fair for everyone without special treatment for friends.
 <br><br><br>
-Chapter which I really enjoyed was about moving questions. It gave a lot of examples where Why questions are not good. I haven't thought before about unsolicited advice being hidden inside a Why question, so it's something I will avoid now. There was a lot of examples of questions which let other people use their creativity and think about different angles of the problem. To make sure we mostly use open-ended questions.
+Chapter which I really enjoyed was about moving questions. It gave a lot of examples showing where "Why questions" are not good. I haven't thought before about unsolicited advice being hidden inside a Why question, so it's something I will avoid now. There was a lot of examples of questions which let other people to use their creativity and think about different angles of the problem. We have to make sure we mostly use open-ended questions. Some closed-ended questions can work too, if they make other people think about the problem more, e.g. "Do you have some ideas how to make it better?".
 
 ## Parting thoughts
 
-This is another book I've read about Soft Skills and I'm glad I did. It focused on different things and I found there a lot of useful ideas how to lead a team. This is not about you, focus on other people, listen, ask moving questions while they think about a solution they want to implement.
+This is another book I've read about Soft Skills and I'm glad I did. It focused on different things and I found there a lot of useful ideas how to lead a team. This is not about you, focus on other people, listen, ask moving questions, while they are thinking about a solution they want to implement. If you want to lead others go and read "Soft Skills for Hard People: A Practical Guide to Emotional Intelligence for Rational Leaders".
